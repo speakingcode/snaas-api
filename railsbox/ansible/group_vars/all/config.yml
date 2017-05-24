@@ -15,11 +15,11 @@ packages:
   - libcurl3-gnutls
   - libcurl4-openssl-dev
   - imagemagick
-manual_ruby_version: 2.3.1
+manual_ruby_version: 2.3.3
 server_name: localhost
-rails_version: 4
+rails_version: 5
 ruby_install: rvm
-ruby_version: 2.2.0
+ruby_version: 2.3.3
 environment_file: /snaas_api/.envrc
 databases:
   - postgresql
