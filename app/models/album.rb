@@ -1,4 +1,6 @@
 class Album < ApplicationRecord
+  has_many :tracks
+
   has_many :peak_chart_positions
 
   has_many :album_charts,
