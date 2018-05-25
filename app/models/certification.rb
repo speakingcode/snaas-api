@@ -4,6 +4,6 @@ class Certification < ApplicationRecord
   validates  :certifying_body,
              :presence => true
 
-  validatesl :certification_level,
+  validates  :certification_level,
              :presence => true
 end

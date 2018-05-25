@@ -1,16 +1,11 @@
-# Ansible managed
-
 default: &default
   adapter: postgresql
-  pool: 5
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 development:
-  <<: *default
-  database: snaas_api
-
-  username: vagrant
-  password: 
+  database: snaas-api_development
 
 test:
-  <<: *default
-  database: snaas_api_test
+  database: snaas-api_test

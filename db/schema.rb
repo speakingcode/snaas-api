@@ -10,19 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170523221408) do
+ActiveRecord::Schema.define(version: 20170627031142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: :cascade do |t|
+  create_table "album_charts", force: :cascade do |t|
+    t.string "label"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "album_formats", force: :cascade do |t|
+    t.string "format"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.string "title"
+    t.string "label"
+    t.date "release_date"
+    t.integer "sales"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "albums_album_formats", force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "album_format_id"
+    t.index ["album_format_id"], name: "index_albums_album_formats_on_album_format_id"
+    t.index ["album_id"], name: "index_albums_album_formats_on_album_id"
+  end
+
+  create_table "certifications", force: :cascade do |t|
+    t.bigint "album_id"
+    t.string "certifying_body"
+    t.string "certification_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_certifications_on_album_id"
   end
 
   create_table "nicknames", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "peak_chart_positions", force: :cascade do |t|
+    t.bigint "album_chart_id"
+    t.bigint "album_id"
+    t.integer "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_chart_id"], name: "index_peak_chart_positions_on_album_chart_id"
+    t.index ["album_id"], name: "index_peak_chart_positions_on_album_id"
   end
 
 end

@@ -1,0 +1,18 @@
+version: '3.6'
+
+services:
+  snaas-api:
+    build: .
+    volumes:
+      - ./:/snaas
+    working_dir: /snaas
+    command: puma
+    ports:
+      - 3000:3000
+    depends_on:
+      - snaas-postgres
+    environment:
+      DATABASE_URL: postgres://postgres@snaas-postgres
+
+  snaas-postgres:
+    image: postgres:10.3-alpine
