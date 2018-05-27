@@ -1,5 +1,5 @@
 class Certification < ApplicationRecord
-  belongs_to :album
+  has_and_belongs_to_many :albums
 
   validates  :certifying_body,
              :presence => true
