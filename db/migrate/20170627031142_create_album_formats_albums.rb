@@ -1,6 +1,6 @@
-class CreateAlbumsAlbumFormats < ActiveRecord::Migration[5.1]
+class CreateAlbumFormatsAlbums < ActiveRecord::Migration[5.1]
   def change
-    create_table :albums_album_formats do |t|
+    create_table :album_formats_albums do |t|
       t.belongs_to :album,
                    :index => true
       

@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180525041806) do
+ActiveRecord::Schema.define(version: 20180527205127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "album_charts", force: :cascade do |t|
-    t.string "label"
+    t.string "chart"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 20180525041806) do
     t.string "format"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "album_formats_albums", force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "album_format_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_format_id"], name: "index_album_formats_albums_on_album_format_id"
+    t.index ["album_id"], name: "index_album_formats_albums_on_album_id"
   end
 
   create_table "albums", force: :cascade do |t|
@@ -36,20 +45,18 @@ ActiveRecord::Schema.define(version: 20180525041806) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "albums_album_formats", force: :cascade do |t|
+  create_table "albums_certifications", force: :cascade do |t|
     t.bigint "album_id"
-    t.bigint "album_format_id"
-    t.index ["album_format_id"], name: "index_albums_album_formats_on_album_format_id"
-    t.index ["album_id"], name: "index_albums_album_formats_on_album_id"
+    t.bigint "certification_id"
+    t.index ["album_id"], name: "index_albums_certifications_on_album_id"
+    t.index ["certification_id"], name: "index_albums_certifications_on_certification_id"
   end
 
   create_table "certifications", force: :cascade do |t|
-    t.bigint "album_id"
     t.string "certifying_body"
     t.string "certification_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["album_id"], name: "index_certifications_on_album_id"
   end
 
   create_table "nicknames", force: :cascade do |t|
@@ -68,6 +75,10 @@ ActiveRecord::Schema.define(version: 20180525041806) do
   end
 
   create_table "tracks", force: :cascade do |t|
+    t.integer "track_no"
+    t.string "title"
+    t.string "writers"
+    t.string "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
