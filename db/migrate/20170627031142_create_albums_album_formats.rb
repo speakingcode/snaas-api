@@ -6,6 +6,8 @@ class CreateAlbumsAlbumFormats < ActiveRecord::Migration[5.1]
       
       t.belongs_to :album_format,
                    :index => true
+
+      t.timestamps
     end
   end
 end
