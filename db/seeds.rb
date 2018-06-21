@@ -106,6 +106,7 @@ Album.create :title         => 'Doggystyle',
              :label         => 'Death Row',
              :release_date  => Date.new(1993, 11, 23),
              :sales         => 7000000,
+             :cover_artwork_url => "https://upload.wikimedia.org/wikipedia/en/6/63/SnoopDoggyDoggDoggystyle.jpg",
              :album_formats => formats.values,
 
              :certifications => [
@@ -154,6 +155,7 @@ Album.create :title         => 'The Doggfather',
              :label         => 'Death Row',
              :release_date  => Date.new(1996, 11, 12),
              :sales         => 2000000,
+             :cover_artwork_url => "https://upload.wikimedia.org/wikipedia/en/a/a3/Tha-doggfather.jpg",
              :album_formats => formats.values,
 
              :certifications => [
@@ -210,6 +212,7 @@ Album.create :title         => 'Da Game Is to Be Sold, Not to Be Told',
              :label         => 'No Limit',
              :release_date  => Date.new(1998, 8, 4),
              :sales         => 2085000,
+             :cover_artwork_url => "https://upload.wikimedia.org/wikipedia/en/c/c5/Gameistobesold.jpg",
              :album_formats => formats.values,
 
              :certifications => [
@@ -261,6 +264,7 @@ Album.create :title         => 'No Limit Top Dogg',
              :label         => 'No Limit',
              :release_date  => Date.new(1999, 5, 11),
              :sales         => 1518000,
+             :cover_artwork_url => "https://upload.wikimedia.org/wikipedia/en/d/d1/Snoop_front.JPG",
              :album_formats => formats.values,
 
              :certifications => [
@@ -308,6 +312,7 @@ Album.create :title         => 'The Last Meal',
              :label         => 'No Limit',
              :release_date  => Date.new(2000, 12, 19),
              :sales         => 2068000,
+             :cover_artwork_url => "https://upload.wikimedia.org/wikipedia/en/d/dc/The_Last_Meal_-_Front.jpeg",
              :album_formats => formats.values,
 
              :certifications => [

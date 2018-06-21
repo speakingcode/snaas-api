@@ -5,6 +5,7 @@ class CreateAlbums < ActiveRecord::Migration[5.1]
       t.string  :label
       t.date    :release_date
       t.integer :sales
+      t.string  :cover_artwork_url
 
       t.timestamps
     end
