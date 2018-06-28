@@ -11,7 +11,7 @@ module Api::V1
       respond_to do |format|
         format.json {
           render :json => albums.to_json(
-            :include => [:certifications, :peak_chart_positions => {:include => :album_chart }]
+            :include => [:certifications, :album_formats, :peak_chart_positions => {:include => :album_chart }]
           )
         }
       end
