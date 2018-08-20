@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180527205127) do
     t.string "label"
     t.date "release_date"
     t.integer "sales"
+    t.string "cover_artwork_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
