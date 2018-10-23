@@ -1,5 +1,5 @@
 module Api::V1
-  class ApiKeysController < ApplicationController
+  class ApiKeysController < ApiController
     before_action :set_api_key, only: [:show, :update, :destroy]
 
     # GET /api_keys
@@ -47,7 +47,7 @@ module Api::V1
 
     # Only allow a trusted parameter "white list" through.
     def api_key_params
-      params.require(:api_key).permit(:api_key, :user_id)
+      params.require(:api_key).permit(:user_id)
     end
   end
 end
