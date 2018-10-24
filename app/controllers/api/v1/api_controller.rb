@@ -1,6 +1,9 @@
 module Api::V1
   class ApiController < ApplicationController
     include ActionController::MimeResponds
+    
+    include ActionController::HttpAuthentication::Token::ControllerMethods
+
     # Generic API stuff here
     before_action :authenticate
 

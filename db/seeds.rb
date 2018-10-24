@@ -5,6 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+#user for api client
+user = User.create!({email: "noone@notrealemail.address", password: "123456", password_confirmation: "123456", confirmed_at: Time.now})
+
+#official client API key
+ApiKey.create(user: user)
+
+#album data
 certs = {
   :riaa_4x_plat => Certification.create(
     :certifying_body      => 'RIAA',
