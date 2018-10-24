@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180820205613) do
+ActiveRecord::Schema.define(version: 20181023202559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,14 @@ ActiveRecord::Schema.define(version: 20180820205613) do
     t.bigint "certification_id"
     t.index ["album_id"], name: "index_albums_certifications_on_album_id"
     t.index ["certification_id"], name: "index_albums_certifications_on_certification_id"
+  end
+
+  create_table "api_keys", force: :cascade do |t|
+    t.string "api_key"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_api_keys_on_user_id"
   end
 
   create_table "certifications", force: :cascade do |t|
@@ -100,4 +108,5 @@ ActiveRecord::Schema.define(version: 20180820205613) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "api_keys", "users"
 end
