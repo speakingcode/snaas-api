@@ -1,11 +1,11 @@
 FROM ruby:2.5.1-alpine3.7
 
 RUN apk add --update build-base postgresql-dev tzdata
-RUN gem install rails -v '5.1.6'
+RUN gem install bundler
 
-WORKDIR /snaas
-ADD Gemfile Gemfile.lock /snaas/
+WORKDIR /snaas-api
+ADD Gemfile Gemfile.lock /snaas-api/
 RUN bundle install
 
-ADD . .
+ADD app config.ru public test bin db lib Rakefile config README.md /snaas-api/
 CMD ["puma"]
