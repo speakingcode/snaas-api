@@ -159,10 +159,10 @@ DEPENDENCIES
   pg
   puma (~> 3.11)
   rack-cors
-  rails (~> 5.1.5)
+  rails (~> 5.1.6)
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
 
 BUNDLED WITH
-   1.16.3
+   1.16.6
