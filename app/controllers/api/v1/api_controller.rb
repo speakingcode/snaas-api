@@ -1,23 +1,22 @@
 module Api::V1
   class ApiController < ApplicationController
     include ActionController::MimeResponds
-    
+
     include ActionController::HttpAuthentication::Token::ControllerMethods
 
     # Generic API stuff here
-    before_action :authenticate
+    before_action :authenticate_api_client
 
     protected
 
     # Authenticate the user with token based authentication
-    def authenticate
+    def authenticate_api_client
       authenticate_api_key || render_unauthorized
     end
 
     def authenticate_api_key
-      authenticate_with_http_token do |token, options|
-        @api_key = ApiKey.find_by(api_key: token)
-      end
+        api_key = request.headers['X-Api-Key'] || params['api_key']
+        @api_key = ApiKey.find_by(api_key: api_key)
     end
 
     def render_unauthorized(realm = "Application")

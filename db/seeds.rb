@@ -10,7 +10,8 @@
 user = User.create!({email: "noone@notrealemail.address", password: "123456", password_confirmation: "123456", confirmed_at: Time.now})
 
 #official client API key
-ApiKey.create(user: user)
+key = ApiKey.create(user: user)
+puts "key created: #{key.api_key}"
 
 #album data
 certs = {
