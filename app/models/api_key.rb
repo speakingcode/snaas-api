@@ -1,8 +1,10 @@
 class ApiKey < ApplicationRecord
   belongs_to :user
 
-  before_create do |api_key|
-    api_key.api_key = api_key.generate_api_key
+  before_create :set_api_key
+
+  def set_api_key
+    self.api_key = generate_api_key
   end
 
   # Generate a unique API key
